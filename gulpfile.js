@@ -1,7 +1,8 @@
 var gulp        = require ( 'gulp' ),
     fileInc     = require ( 'gulp-file-include' ),
     sass        = require ( 'gulp-sass' ),
-    include     = require ( 'gulp-include' );
+    include     = require ( 'gulp-include' ),
+    livereload  = require ( 'gulp-livereload' );
 
 gulp.task ( 'html', function()
 {
@@ -13,7 +14,8 @@ gulp.task ( 'html', function()
                 basepath: '@file'
             }) // fileInc
         ) // .pipe
-        .pipe( gulp.dest( './' ) );
+        .pipe( gulp.dest( './' ) )
+        .pipe( livereload() );
 }); // html
 
 gulp.task ( 'sass', function()
@@ -21,7 +23,8 @@ gulp.task ( 'sass', function()
     gulp
         .src ( './src/sass/**/*.scss')
         .pipe ( sass() )
-        .pipe( gulp.dest ( './statics/css') );
+        .pipe( gulp.dest ( './statics/css') )
+        .pipe( livereload() );
 }); // sass
 
 gulp.task ( 'js', function()
@@ -29,5 +32,16 @@ gulp.task ( 'js', function()
     gulp
         .src( './src/js/index.js' )
         .pipe( include() )
-        .pipe( gulp.dest( './statics/js/' ) );
+        .pipe( gulp.dest( './statics/js/' ) )
+        .pipe( livereload() );
 }); // js
+
+gulp.task( 'watch', function()
+{
+	livereload.listen();
+	gulp.watch( 'src/html/**/*.html', [ 'html' ] );
+	gulp.watch( 'src/scss/**/*.scss', [ 'sass' ] );
+	gulp.watch( 'src/js/**/*.js', [ 'js' ] );
+});
+
+gulp.task( 'default', [ 'watch' ] );
