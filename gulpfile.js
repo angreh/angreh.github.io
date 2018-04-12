@@ -1,5 +1,6 @@
 var gulp        = require ( 'gulp' ),
-    fileInc     = require ( 'gulp-file-include' );
+    fileInc     = require ( 'gulp-file-include' ),
+    sass        = require ( 'gulp-sass' );
 
 gulp.task ( 'html', function()
 {
@@ -13,3 +14,11 @@ gulp.task ( 'html', function()
         ) // .pipe
         .pipe( gulp.dest( './' ) );
 }); // html
+
+gulp.task ( 'sass', function()
+{
+    gulp
+        .src ( './src/sass/**/*.scss')
+        .pipe ( sass() )
+        .pipe( gulp.dest ( './statics/css') );
+});
