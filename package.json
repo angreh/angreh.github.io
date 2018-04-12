@@ -1,0 +1,23 @@
+{
+  "name": "angreh.github.io",
+  "version": "1.0.0",
+  "description": "website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angreh/angreh.github.io.git"
+  },
+  "author": "Angreh Pinto ( angreh@gmail.com )",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angreh/angreh.github.io/issues"
+  },
+  "homepage": "https://github.com/angreh/angreh.github.io#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^2.0.1"
+  }
+}
