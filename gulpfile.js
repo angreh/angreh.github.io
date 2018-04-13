@@ -40,7 +40,7 @@ gulp.task( 'watch', function()
 {
 	livereload.listen();
 	gulp.watch( 'src/html/**/*.html', [ 'html' ] );
-	gulp.watch( 'src/scss/**/*.scss', [ 'sass' ] );
+	gulp.watch( 'src/sass/**/*.scss', [ 'sass' ] );
 	gulp.watch( 'src/js/**/*.js', [ 'js' ] );
 });
 
